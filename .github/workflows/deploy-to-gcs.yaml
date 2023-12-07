@@ -22,4 +22,4 @@ jobs:
 
     - name: Copy file to GCS bucket
       run: |
-        gsutil cp testpage.html gs://your-bucket-name/
+        gsutil cp index.html gs://your-bucket-name/
