@@ -1,0 +1,25 @@
+name: Deploy to GCS
+
+on:
+  push:
+    branches:
+      - main  # Modify this according to your branch name
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Google Cloud SDK
+      uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+      with:
+        version: '367.0.0'
+        service_account_key: ${{ secrets.GCP_SA_KEY }}
+        project_id: your-project-id
+
+    - name: Copy file to GCS bucket
+      run: |
+        gsutil cp testpage.html gs://your-bucket-name/
