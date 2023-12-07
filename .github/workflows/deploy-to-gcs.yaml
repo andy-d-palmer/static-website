@@ -18,8 +18,8 @@ jobs:
       with:
         version: '367.0.0'
         service_account_key: ${{ secrets.GCP_SA_KEY }}
-        project_id: your-project-id
+        project_id: ${{ SECRETS.GCP_PROJECT_ID }} 
 
     - name: Copy file to GCS bucket
       run: |
-        gsutil cp index.html gs://your-bucket-name/
+        gsutil cp index.html gs://${{ SECRETS.GCP_BUCKET_NAME }} 
