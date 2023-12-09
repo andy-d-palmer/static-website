@@ -26,5 +26,5 @@ jobs:
       uses: 'google-github-actions/upload-cloud-storage@v1'
       with:
         path: 'index.html'
-        destination: '${{ GCP_BUCKENAME }}/index.html'
+        destination: '${{ GCP_BUCKETNAME }}/index.html'
 
