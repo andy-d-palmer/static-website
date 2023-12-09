@@ -21,7 +21,7 @@ jobs:
       with:
         project_id: ${{ vars.GCP_PROJECTID }}
         workload_identity_provider: ${{ vars.GCP_WORKLOADIDENTITYPROVIDER }}
-        service_account: {{ vars.GCP_SERVICEACCOUNT }}
+        service_account: ${{ vars.GCP_SERVICEACCOUNT }}
 
 
     - id: 'upload-file'
