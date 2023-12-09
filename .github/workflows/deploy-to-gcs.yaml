@@ -22,6 +22,9 @@ jobs:
         project_id: ${{ vars.GCP_PROJECTID }}
         workload_identity_provider: ${{ vars.GCP_WORKLOADIDENTITYPROVIDER }}
 
-    - name: Copy file to GCS bucket
-      run: |
-        gsutil cp index.html gs://${{ vars.GCP_BUCKETNAME }} 
+    - id: 'upload-file'
+      uses: 'google-github-actions/upload-cloud-storage@v1'
+      with:
+        path: 'index.html'
+        destination: '${{ GCP_BUCKENAME }}/index.html'
+
