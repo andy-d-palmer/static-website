@@ -19,9 +19,8 @@ jobs:
       name: 'Authenticate to Google Cloud'
       uses: 'google-github-actions/auth@v0.4.0'
       with:
-        token_format: 'access_token'
+        project_id: ${{ vars.GCP_PROJECTID }}
         workload_identity_provider: ${{ vars.GCP_WORKLOADIDENTITYPROVIDER }}
-        service_account: ${{ vars.GCP_SERVICEACCOUNT }}
 
     - name: Copy file to GCS bucket
       run: |
